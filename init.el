@@ -97,3 +97,7 @@
 ;; sml mode
 (ensure-package-installed 'sml-mode)
 (require 'sml-mode)
+
+;; personal.el
+(if (file-exists-p "~/.emacs.d/personal.el")
+    (load "~/.emacs.d/personal.el"))
