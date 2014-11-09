@@ -93,3 +93,7 @@
 ;; php mode
 (ensure-package-installed 'php-mode)
 (require 'php-mode)
+
+;; sml mode
+(ensure-package-installed 'sml-mode)
+(require 'sml-mode)
