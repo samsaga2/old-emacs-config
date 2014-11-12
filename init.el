@@ -94,9 +94,17 @@
 (ensure-package-installed 'php-mode)
 (require 'php-mode)
 
-;; sml mode
-(ensure-package-installed 'sml-mode)
-(require 'sml-mode)
+;; omnisharp
+;; (ensure-package-installed 'omnisharp)
+;; (require 'omnisharp)
+;; (eval-after-load 'company
+;;  '(add-to-list 'company-backends 'company-omnisharp))
+;; (add-hook 'csharp-mode-hook 'omnisharp-mode)
+
+;; geiser
+(ensure-package-installed 'geiser)
+(require 'geiser)
+(setq geiser-racket-binary "/cygdrive/d/Program Files/Racket/Racket.exe")
 
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
