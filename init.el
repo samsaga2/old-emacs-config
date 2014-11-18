@@ -65,6 +65,7 @@
 ;; projectile
 (ensure-package-installed 'projectile)
 (require 'projectile)
+(projectile-global-mode)
 
 ;; flymake
 (ensure-package-installed 'flymake)
@@ -104,8 +105,19 @@
 ;; geiser
 (ensure-package-installed 'geiser)
 (require 'geiser)
-(setq geiser-racket-binary "/cygdrive/d/Program Files/Racket/Racket.exe")
+
+;; prettify symbols
+(defconst lisp--prettify-symbols-alist
+  '(("lambda"  . ?λ)))
+(global-prettify-symbols-mode t)
+(add-hook 'scheme-mode-hook
+          (lambda ()
+            (push '("lambda " . ?λ) prettify-symbols-alist)))
+(add-hook 'geiser-mode-hook
+          (lambda ()
+            (push '("lambda " . ?λ) prettify-symbols-alist)))
 
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
     (load "~/.emacs.d/personal.el"))
+
