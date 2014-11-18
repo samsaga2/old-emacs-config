@@ -28,7 +28,8 @@
                                   indentation space-after-tab)
       whitespace-line-column 100
       ediff-window-setup-function 'ediff-setup-windows-plain
-      xterm-mouse-mode t)
+      xterm-mouse-mode t
+      scroll-margin 4)
 
 (auto-compression-mode t)
 (recentf-mode 1)
