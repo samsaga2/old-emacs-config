@@ -116,10 +116,10 @@
 (global-prettify-symbols-mode t)
 (add-hook 'scheme-mode-hook
           (lambda ()
-            (push '("lambda " . ?λ) prettify-symbols-alist)))
+            (push '("lambda" . ?λ) prettify-symbols-alist)))
 (add-hook 'geiser-mode-hook
           (lambda ()
-            (push '("lambda " . ?λ) prettify-symbols-alist)))
+            (push '("lambda" . ?λ) prettify-symbols-alist)))
 
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
