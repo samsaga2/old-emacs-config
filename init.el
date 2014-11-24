@@ -62,6 +62,10 @@
 (require 'paredit)
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 
+;; evil paredit
+(ensure-package-installed 'evil-paredit)
+(require 'evil-paredit)
+
 ;; projectile
 (ensure-package-installed 'projectile)
 (require 'projectile)
