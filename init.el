@@ -19,7 +19,6 @@
 (evil-leader/set-leader ",")
 (evil-leader/set-key
   "u" 'undo-tree-visualize
-  "x" 'execute-extended-mode
   "c" 'comment-or-uncomment-region
   "w" 'save-buffer
   "b" 'switch-to-buffer
@@ -115,11 +114,9 @@
   '(("lambda"  . ?λ)))
 (global-prettify-symbols-mode t)
 (add-hook 'scheme-mode-hook
-          (lambda ()
-            (push '("lambda" . ?λ) prettify-symbols-alist)))
+          (lambda () (push '("lambda" . ?λ) prettify-symbols-alist)))
 (add-hook 'geiser-mode-hook
-          (lambda ()
-            (push '("lambda" . ?λ) prettify-symbols-alist)))
+          (lambda () (push '("lambda" . ?λ) prettify-symbols-alist)))
 
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
