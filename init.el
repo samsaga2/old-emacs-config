@@ -118,7 +118,12 @@
 (add-hook 'geiser-mode-hook
           (lambda () (push '("lambda" . ?λ) prettify-symbols-alist)))
 
+;; nyan cat
+(ensure-package-installed 'nyan-mode)
+(require 'nyan-mode)
+(nyan-start-animation)
+(nyan-mode)
+
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
     (load "~/.emacs.d/personal.el"))
-
