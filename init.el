@@ -124,6 +124,10 @@
 (nyan-start-animation)
 (nyan-mode)
 
+;; yaml mode
+(ensure-package-installed 'yaml-mode)
+(require 'yaml-mode)
+
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
     (load "~/.emacs.d/personal.el"))
