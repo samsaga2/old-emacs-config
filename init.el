@@ -137,6 +137,16 @@
 (add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
 (add-to-list 'auto-mode-alist '("\\.geom\\'" . glsl-mode))
 
+;; slime
+(ensure-package-installed 'slime)
+(require 'slime)
+(slime-setup '(slime-repl slime-asdf slime-fancy slime-banner))
+
+;; rainbow delimiters
+(ensure-package-installed 'rainbow-delimiters)
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
     (load "~/.emacs.d/personal.el"))
