@@ -1,10 +1,8 @@
 ;; hide menubar, toolbar, scrollbar and tooltips
 (menu-bar-mode -1)
-
-(when window-system
-  (tooltip-mode -1)
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1))
+(tool-bar-mode -1)
+(tooltip-mode -1)
+(scroll-bar-mode -1)
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))

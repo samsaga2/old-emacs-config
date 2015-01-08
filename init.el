@@ -22,7 +22,9 @@
   "c" 'comment-or-uncomment-region
   "w" 'save-buffer
   "b" 'switch-to-buffer
-  "k" 'kill-buffer) 
+  "k" 'kill-buffer
+  "p" 'projectile-find-file
+  "x" 'execute-extended-command) 
 
 ;; ace jump
 (ensure-package-installed 'ace-jump-mode)
