@@ -156,6 +156,13 @@
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
+;; key chord
+(ensure-package-installed 'key-chord)
+(require 'key-chord)
+(setq key-chord-two-keys 0.5)
+(key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+(key-chord-mode 1)
+
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
     (load "~/.emacs.d/personal.el"))
