@@ -16,21 +16,22 @@
 (require 'evil-leader)
 (global-evil-leader-mode)
 
-(evil-leader/set-leader ",")
+(evil-leader/set-leader "<SPC>")
 (evil-leader/set-key
   "u" 'undo-tree-visualize
   "c" 'comment-or-uncomment-region
   "w" 'save-buffer
-  "b" 'switch-to-buffer
   "k" 'kill-buffer
   "p" 'projectile-find-file
-  "x" 'execute-extended-command) 
+  "x" 'execute-extended-command
+  "j" 'join-line
+  "q" 'kill-buffer) 
 
 ;; ace jump
 (ensure-package-installed 'ace-jump-mode)
 (require 'ace-jump-mode)
 (evil-leader/set-key
-  "," 'ace-jump-word-mode
+  "<SPC>" 'ace-jump-word-mode
   "." 'ace-jump-char-mode)
 
 ;; helm
@@ -39,7 +40,8 @@
 (helm-mode t)
 
 (evil-leader/set-key
-  "o" 'helm-mini)
+  "o" 'helm-mini
+  "b" 'helm-buffers-list)
 
 ;; multiple cursors
 (ensure-package-installed 'multiple-cursors)
@@ -59,9 +61,10 @@
 (global-git-gutter-mode t)
 
 ;; paredit
-(ensure-package-installed 'paredit)
-(require 'paredit)
-(add-hook 'prog-mode-hook 'electric-pair-mode)
+(ensure-package-installed 'smartparens)
+(require 'smartparens)
+(require 'smartparens-config)
+(smartparens-global-mode 1)
 
 ;; evil paredit
 (ensure-package-installed 'evil-paredit)
@@ -143,6 +146,10 @@
 (ensure-package-installed 'slime)
 (require 'slime)
 (slime-setup '(slime-repl slime-asdf slime-fancy slime-banner))
+
+(evil-leader/set-key-for-mode 'lisp-mode "e" 'slime-eval-buffer)
+(evil-leader/set-key-for-mode 'lisp-mode "d" 'slime-eval-defun)
+(evil-leader/set-key-for-mode 'lisp-mode "s" 'slime)
 
 ;; rainbow delimiters
 (ensure-package-installed 'rainbow-delimiters)
