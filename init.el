@@ -161,7 +161,12 @@
 (require 'key-chord)
 (setq key-chord-two-keys 0.5)
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+(key-chord-define evil-insert-state-map "ee" 'slime-eval-defun)
 (key-chord-mode 1)
+
+;; windmove
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
 
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
