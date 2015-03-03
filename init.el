@@ -19,9 +19,8 @@
 (evil-leader/set-leader "<SPC>")
 (evil-leader/set-key
   "u" 'undo-tree-visualize
-  "c" 'comment-or-uncomment-region
-  "w" 'save-buffer
-  "k" 'kill-buffer
+  "k" 'comment-or-uncomment-region
+  "s" 'save-buffer
   "p" 'projectile-find-file
   "x" 'execute-extended-command
   "j" 'join-line
@@ -31,8 +30,8 @@
 (ensure-package-installed 'ace-jump-mode)
 (require 'ace-jump-mode)
 (evil-leader/set-key
-  "<SPC>" 'ace-jump-word-mode
-  "." 'ace-jump-char-mode)
+  "w" 'ace-jump-word-mode
+  "c" 'ace-jump-char-mode)
 
 ;; helm
 (ensure-package-installed 'helm)
@@ -162,7 +161,7 @@
 (require 'key-chord)
 (setq key-chord-two-keys 0.5)
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
-(key-chord-define evil-insert-state-map "ee" 'slime-eval-defun)
+(key-chord-define evil-insert-state-map "ii" 'slime-eval-defun)
 (key-chord-mode 1)
 
 ;; windmove
@@ -179,6 +178,13 @@
       (append '(("\\.ml[ily]?$" . tuareg-mode)
                 ("\\.topml$" . tuareg-mode))
               auto-mode-alist))
+
+;; clojure
+(ensure-package-installed 'cider)
+(add-hook 'cider-mode-hook #'eldoc-mode)
+(setq nrepl-log-messages t)
+(setq nrepl-hide-special-buffers t)
+(setq cider-repl-tab-command #'indent-for-tab-command)
 
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
