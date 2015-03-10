@@ -186,6 +186,17 @@
 (setq nrepl-hide-special-buffers t)
 (setq cider-repl-tab-command #'indent-for-tab-command)
 
+;; web mode
+(ensure-package-installed 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
     (load "~/.emacs.d/personal.el"))
