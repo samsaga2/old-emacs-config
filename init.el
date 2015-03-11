@@ -30,7 +30,7 @@
 (ensure-package-installed 'ace-jump-mode)
 (require 'ace-jump-mode)
 (evil-leader/set-key
-  "w" 'ace-jump-word-mode
+  "<SPC>" 'ace-jump-word-mode
   "c" 'ace-jump-char-mode)
 
 ;; helm
@@ -161,7 +161,6 @@
 (require 'key-chord)
 (setq key-chord-two-keys 0.5)
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
-(key-chord-define evil-insert-state-map "ii" 'slime-eval-defun)
 (key-chord-mode 1)
 
 ;; windmove
@@ -185,6 +184,16 @@
 (setq nrepl-log-messages t)
 (setq nrepl-hide-special-buffers t)
 (setq cider-repl-tab-command #'indent-for-tab-command)
+
+;; clojure autocompletion
+(ensure-package-installed 'ac-cider)
+(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+(add-hook 'cider-mode-hook 'ac-cider-setup)
+(add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+(eval-after-load "auto-complete"
+  '(progn
+     (add-to-list 'ac-modes 'cider-mode)
+     (add-to-list 'ac-modes 'cider-repl-mode)))
 
 ;; personal.el
 (if (file-exists-p "~/.emacs.d/personal.el")
