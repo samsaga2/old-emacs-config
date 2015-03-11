@@ -37,6 +37,12 @@
 (ensure-package-installed 'helm)
 (require 'helm-config)
 (helm-mode t)
+(setq helm-display-header-line nil)
+(set-face-attribute 'helm-source-header nil :height 0.1)
+(helm-autoresize-mode 1)
+(setq helm-autoresize-max-height 30)
+(setq helm-autoresize-min-height 30)
+(setq helm-split-window-in-side-p t)
 
 (evil-leader/set-key
   "o" 'helm-mini
