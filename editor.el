@@ -64,3 +64,8 @@
 ;; flymake
 (ensure-package-installed 'flymake)
 (require 'flymake)
+
+;; expand region
+(ensure-package-installed 'expand-region)
+(require 'expand-region)
+(global-set-key (kbd "C-º") 'er/expand-region)
