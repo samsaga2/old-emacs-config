@@ -14,6 +14,7 @@
 (load "~/.emacs.d/progmodes/ocaml.el")
 (load "~/.emacs.d/progmodes/clojure.el")
 (load "~/.emacs.d/progmodes/webmode.el")
+(load "~/.emacs.d/progmodes/python.el")
 
 ;; personal
 (if (file-exists-p "~/.emacs.d/personal.el")
